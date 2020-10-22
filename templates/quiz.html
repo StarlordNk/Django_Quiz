@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body >
+    <form action="quiz" method="POST">
+     {% csrf_token %}
+     <p>{{ques.question}}</p>
+     <input type="hidden" name="id" value="{{ques.id}}">
+        <input type="radio" name="choice" value="{{ques.option1}}" required>{{ques.option1}}<br>
+        <input type="radio" name="choice" value="{{ques.option2}}" required>{{ques.option2}}<br>
+        <input type="radio" name="choice" value="{{ques.option3}}" required>{{ques.option3}}<br>
+        <input type="radio" name="choice" value="{{ques.option4}}" required>{{ques.option4}}<br>
+        <br>
+        <Button type="submit" class="btn-success" onselect="blur">Submit</Button>
+    </form>
+</body>
+</html>

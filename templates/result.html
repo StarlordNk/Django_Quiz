@@ -1,0 +1,12 @@
+{% extends  'base.htm' %}
+{% block content %}
+Result={{score}}
+        <div>
+            {% for i in messages %}
+          <h2>  {{i}}</h2>
+            {% endfor %}
+        </div>
+        <h1>
+        <a href="/">Home</a>
+        </h1>
+{% endblock %}

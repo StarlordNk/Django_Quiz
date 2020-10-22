@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <title>SignUp </title>
+    <head>
+    <script>
+         function f1()
+        {
+             n1=document.getElementById("password").value
+             n2=document.getElementById("id2").value
+              if(n2!=n1)
+                 alert("Password does not match");
+        }
+            function showpass()
+            {
+                var obj=document.getElementById("password");
+                if(obj.type==="password")
+                obj.type="text";
+                else
+                obj.type="password";
+           }
+
+      
+           var checkboxes = document.getElementById("checkbox"),
+          submitButt = document.getElementById("submit");
+         checkboxes.click(function() {
+         submitButt.attr("disabled", !checkboxes.is(":checked"));
+      }); 
+     function passcheck()
+      {
+         pass=document.getElementById("password");
+         pass.type="text";
+         passexp=/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\w{6,10}$/;
+         if(passexp.test(pass))
+           pass.type="password";
+         else
+         {
+            alert("Its voilating the convention");
+				document.getElementById("password").value="";
+            showpass();
+         }
+      }
+        </script>
+        </head>
+    <div align="center">
+      <h1><font size="28" align="center">SignUp</h1>
+    </font></div>
+    <body bgcolor="skyblue" align="center">
+        <form method="post" action="signup">
+        {% csrf_token %}
+        <table border="0" align="center">
+             <tr>
+                <td>FIRST NAME</td>
+                <td><input type="text" id="fname" name="first_name" placeholder="First Name" required maxlength="20"></td>
+             </tr>
+             <tr>
+                <td>LAST NAME</td>
+                <td><input type="text" id="fname" name="last_name" placeholder="Last Name" required maxlength="20"></td>
+             </tr>
+                  <tr>
+                <td>Email</td>
+                <td><input type="email" name="Email" Id="User" placeholder="Email" required ></td>
+             </tr>
+             <tr>
+                <td>UserName</td>
+                <td><input type="text" name="username" Id="User" placeholder="userName" required ></td>
+             </tr>
+              </table>
+              <tr><td>Birthdate</td>
+             <input type="date"  id='dob' name="dob" placeholder='Date of Birth' required>
+            </tr><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <tr><td>Password</td>
+                <input type="password" id="password" name='password' placeholder="password"  maxlength="10" required>
+            </tr>
+            <input type="checkbox" id="checkboxes" onclick="showpass()">Show password<br>
+            Confirm Password <input type="password" id="id2" placeholder="Confirm password" required><br>
+            <td>
+            <input type="checkbox" id="checkbox" required value="terms" onclick="f1()">I accept <a href="terms.html">terms & conditions.</a><br>
+            <td><input type="submit" id="Submit" value="SignUp">
+                </td>
+        </form><br>
+        <div>
+            {% for i in messages %}
+          <h2>  {{i}}</h2>
+            {% endfor %}
+        </div>
+        <a href="login">Already a User,Login </a>
+        <br><br><h2><a href="/">HOME</a></h2>
+        </body>
+</html>

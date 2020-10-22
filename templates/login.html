@@ -1,0 +1,39 @@
+{% load static %}
+{% static "images" as im %}
+<!DOCTYPE html>
+<html>
+    <title>Login-Starlord
+    </title>
+    <head>
+    </head>
+        <body bgcolor="cyan">
+          <div align="center">
+          <!--
+              <img src="{{im}}/{{destinations.jpg}} " width="400px" height="100px" alter="S">
+          --><h3>USER LOGIN</h3>
+          <form method="post" action='login'>
+          {% csrf_token %}
+          <table border="0">
+             <tr>
+              <td>User Id</td>
+                <td><input type="username" name="username" id="User" placeholder="username" >
+                </td>
+             </tr>
+          </table>
+           <tr><td>Password</td>
+          <input type="password" id="password" name="password" placeholder="password">
+          </tr><br>
+          <input type="checkbox" value="remember">Remember me<br>
+          <td><input type="submit" value="Login">
+                </td><br><br>
+            </form>
+            <div>
+            {% for i in messages %}
+          <h2>  {{i}}</h2>
+            {% endfor %}
+        </div>
+            <a href="signup">New User! SignUp Here</a>
+        <br>
+        <h2><a href="/"> HOME</a></h2>
+    </body>
+</html>

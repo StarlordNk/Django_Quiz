@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Home/Mcq
+    </title>
+    <body align="center" >
+    <h1 style="color: teal;">Quizeria</h1>
+    <h3>No Logic quiz</h3>
+        {% if user.is_authenticated %}
+		<div>
+            {{user.username}}&nbsp;&nbsp;
+            <a href="logout">
+            <button type="submit" class="btn" value="logout">Logout</button><a></button>
+        </div>
+        <div>
+            {% else %}							
+    
+          <div class="row" >   
+              <a href="login">
+            <button type="submit" name="submit" class=" btn btn-cyan" type="submit" value="login" >Login</button></a>
+        &nbsp;&nbsp;
+        <a href="signup">
+        <button type="submit" name="submit" class="btn-link" value="Signup">Signup</button></a>
+        </div>
+        {% endif %}
+        
+            <a href="quiz">Go to Quiz</a>
+        </div>
+ 
+    </body>
+</html>
