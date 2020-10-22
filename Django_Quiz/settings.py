@@ -79,14 +79,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         "CLIENT":{
-            
         "name" : "Quiz_db",# database config
         "username": "admin",
         "password" :"quiz1",
         "host":"mongodb+srv://admin:quiz1@cluster0.xsqcx.mongodb.net/<dbname>?retryWrites=true&w=majority",
-        #//admin:<password>@cluster0.xsqcx.mongodb.net/<dbname>?retryWrites=true&w=majority
         "authMechanism":"SCRAM-SHA-1",
-        #quiz1
         }
     }
 }
